@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Halaman Pribadi - Nama Anda</title>
+  <style>
+    :root {
+      --primary-color: #004080;
+      --secondary-color: white;
+      --background-color: #f4f4f4;
+      --text-color: #333;
+      --hover-color: #ffcc00;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary-color: #1a1a1a;
+        --secondary-color: #f0f0f0;
+        --background-color: #121212;
+        --text-color: #e0e0e0;
+        --hover-color: #ffcc00;
+      }
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      scroll-behavior: smooth;
+    }
+    header {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      padding: 20px 0;
+      text-align: center;
+    }
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--secondary-color);
+      margin-bottom: 10px;
+      transition: transform 0.3s;
+    }
+    header img:hover {
+      transform: scale(1.1);
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      color: var(--secondary-color);
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: var(--hover-color);
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2 {
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    .portfolio-item {
+      background: var(--secondary-color);
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      transition: box-shadow 0.3s;
+    }
+    .portfolio-item:hover {
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    footer {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 40px;
+    }
+    .social-links a {
+      margin: 0 10px;
+      color: var(--secondary-color);
+      font-size: 20px;
+      transition: color 0.3s;
+      text-decoration: none;
+    }
+    .social-links a:hover {
+      color: var(--hover-color);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="https://via.placeholder.com/120" alt="Foto Profil">
+  <h1>Nama Anda</h1>
+  <nav>
+    <a href="#tentang">Tentang</a>
+    <a href="#portofolio">Portofolio</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
+</header>
+
+<section id="tentang">
+  <h2>Tentang Saya</h2>
+  <p>Saya adalah seorang profesional di bidang [Bidang Anda], berpengalaman lebih dari [Jumlah Tahun] tahun. Saya suka menciptakan solusi kreatif dan efisien untuk berbagai tantangan.</p>
+</section>
+
+<section id="portofolio">
+  <h2>Portofolio</h2>
+  <div class="portfolio-item">
+    <h3>Proyek 1</h3>
+    <p>Deskripsi singkat proyek 1.</p>
+  </div>
+  <div class="portfolio-item">
+    <h3>Proyek 2</h3>
+    <p>Deskripsi singkat proyek 2.</p>
+  </div>
+  <div class="portfolio-item">
+    <h3>Proyek 3</h3>
+    <p>Deskripsi singkat proyek 3.</p>
+  </div>
+</section>
+
+<section id="kontak">
+  <h2>Kontak</h2>
+  <p>Silakan hubungi saya melalui:</p>
+  <ul>
+    <li>Email: <a href="mailto:emailanda@example.com">emailanda@example.com</a></li>
+    <li>Telepon: +62 812-3456-7890</li>
+  </ul>
+  <div class="social-links">
+    <a href="#">LinkedIn</a>
+    <a href="#">Instagram</a>
+    <a href="#">GitHub</a>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Nama Anda. All rights reserved.</p>
+</footer>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  function revealSections() {
+    const triggerBottom = window.innerHeight * 0.9;
+    sections.forEach(section => {
+      const sectionTop = section.getBoundingClientRect().top;
+      if(sectionTop < triggerBottom) {
+        section.classList.add('visible');
+      }
+    });
+  }
+  window.addEventListener('scroll', revealSections);
+  window.addEventListener('load', revealSections);
+</script>
+
+</body>
+</html>
